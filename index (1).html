@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>居家烹飪科學 LLM Wiki | 知識庫與教學簡報入口</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet" />
+  <style>
+    body { font-family: 'Noto Sans TC', 'Inter', system-ui, sans-serif; background: #141210; color: #f5f2ed; }
+    .md-body h1 { font-size: 1.65rem; font-weight: 800; color: #fff; margin-bottom: 0.75rem; border-bottom: 1px solid #292524; padding-bottom: 0.5rem; }
+    .md-body h2 { font-size: 1.2rem; font-weight: 700; color: #fdba74; margin-top: 1.4rem; margin-bottom: 0.5rem; }
+    .md-body h3 { font-size: 1.05rem; font-weight: 700; color: #fde68a; margin-top: 1rem; margin-bottom: 0.35rem; }
+    .md-body p { margin-bottom: 0.75rem; line-height: 1.75; color: #e7e5e4; font-size: 0.95rem; }
+    .md-body ul, .md-body ol { margin-left: 1.25rem; margin-bottom: 0.85rem; list-style: disc; color: #d6d3d1; font-size: 0.94rem; line-height: 1.7; }
+    .md-body table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.88rem; }
+    .md-body th, .md-body td { border: 1px solid #44403c; padding: 0.5rem 0.65rem; text-align: left; }
+    .md-body th { background: #292524; color: #fdba74; }
+    .md-body pre { background: #0c0a09; border: 1px solid #292524; padding: 0.85rem; border-radius: 0.5rem; overflow-x: auto; font-size: 0.82rem; margin: 0.75rem 0; color: #d6d3d1; }
+    .md-body code { background: #292524; padding: 0.12rem 0.35rem; border-radius: 0.25rem; font-size: 0.85em; color: #fed7aa; }
+    .md-body pre code { background: transparent; padding: 0; color: inherit; }
+    .md-body a { color: #fb923c; text-decoration: underline; }
+    .wikilink { display: inline-block; background: rgba(234, 88, 12, 0.2); border: 1px solid rgba(251, 146, 60, 0.5); color: #fdba74; padding: 0.05rem 0.45rem; border-radius: 0.35rem; font-weight: 600; cursor: pointer; text-decoration: none; }
+    .wikilink:hover { background: rgba(234, 88, 12, 0.38); }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+  <header class="sticky top-0 z-20 bg-[#1c1917]/95 backdrop-blur border-b border-stone-800 px-4 py-3.5">
+    <div class="max-w-6xl mx-auto flex flex-wrap items-center justify-between gap-3">
+      <div>
+        <h1 class="text-base sm:text-lg font-extrabold text-white">🔥 居家烹飪科學 LLM Wiki</h1>
+        <p class="text-xs text-stone-400">6 篇結構化 Wiki（含 [[雙向連結]]）＋ 5 篇 Raw Sources ＋ 執行檢查紀錄</p>
+      </div>
+      <div class="flex items-center gap-2">
+        <a href="./presentation/index.html" class="bg-orange-600 hover:bg-orange-500 text-white text-xs sm:text-sm font-bold px-4 py-2 rounded-xl transition">
+          ▶ 開啟教學 HTML 簡報
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <div class="max-w-6xl w-full mx-auto flex-1 grid grid-cols-1 md:grid-cols-12 gap-6 px-4 py-6">
+    <aside class="md:col-span-4 lg:col-span-3 space-y-4">
+      <div id="sidebarNav" class="bg-stone-900 border border-stone-800 rounded-2xl p-4 space-y-4"></div>
+    </aside>
+    <main class="md:col-span-8 lg:col-span-9">
+      <article class="bg-stone-900 border border-stone-800 rounded-2xl p-6 sm:p-8 shadow-xl">
+        <div class="flex flex-wrap items-center justify-between gap-2 mb-4 pb-3 border-b border-stone-800">
+          <span id="docPathBadge" class="text-xs font-mono text-orange-300 bg-stone-950 px-2.5 py-1 rounded-lg border border-stone-800"></span>
+          <span class="text-xs text-stone-400">點擊文內 [[雙向連結]] 可直接跳轉條目</span>
+        </div>
+        <div id="docContent" class="md-body"></div>
+      </article>
+    </main>
+  </div>
+
+  <script>
+    const DOCS = [{"id": "wiki-01", "group": "Wiki 條目 (6 篇)", "title": "梅納反應", "path": "wiki/梅納反應.md", "content": "---\nid: wiki-01\nsource: raw_sources/01_maillard_reaction.md\ntags: [化學反應, 香氣, 煎烤, 溫度門檻]\n---\n\n# 梅納反應\n\n## 白話核心概念\n當肉類表面的**蛋白質（胺基酸）**與**微量糖分**在乾燥高溫下相遇，會產生數百種誘人的焦香與肉味分子，這就是牛排外殼酥脆好吃的秘密。\n\n## 關鍵數據與條件（強制查核區）\n- **反應黃金區間**：**140°C–165°C**（284°F–330°F）；實務上約 110°C 起步，超過 **180°C–200°C** 則會轉為過度熱解（焦苦炭化）。\n- **必要條件**：必須同時具備「胺基酸 + 還原糖」，且表面必須**乾燥**。\n- **酸鹼加速**：偏鹼性環境（pH > 7.0）會加速反應；酸性醃料會減緩上色。\n- **主要風味物質**：吡嗪（Pyrazines）、呋喃（Furans）與褐色類黑素（Melanoidins）。\n\n## 常見誤區（簡報排錯素材）\n- ❌ 誤以為只要開大火就會發生梅納反應（若表面有水，溫度會卡在 100°C 無法啟動）。\n- ❌ 常與「焦糖化反應」混淆，誤以為煎牛排的焦香只是糖分燒焦。\n\n## 關聯條目\n- 與純糖反應的差異請見：[[焦糖化反應]]\n- 為何表面水分會阻斷反應請見：[[表面水分與水煮效應]]\n"}, {"id": "wiki-02", "group": "Wiki 條目 (6 篇)", "title": "焦糖化反應", "path": "wiki/焦糖化反應.md", "content": "---\nid: wiki-02\nsource: raw_sources/01_maillard_reaction.md\ntags: [化學反應, 糖類, 高溫]\n---\n\n# 焦糖化反應\n\n## 白話核心概念\n不需要任何蛋白質，純粹是**「糖」被高溫加熱裂解**後變成焦糖色與甜香太妃糖風味的過程。\n\n## 關鍵數據與條件（強制查核區）\n- **反應物質**：純碳水化合物（糖類），**不含蛋白質／胺基酸**。\n- **起始溫度**：依糖種不同而異——果糖約 **110°C**、葡萄糖約 **150–160°C**、蔗糖需 **160°C 以上**（320°F+）。\n- **風味產物**：雙乙醯（Diacetyl，奶油香）、麥芽醇（Maltol）與焦糖素，帶甜香與微苦焦香。\n\n## 常見誤區（簡報排錯素材）\n- ❌ 把煎牛排產生的褐色外殼統稱為「焦糖化」（牛排主要靠蛋白質參與的 [[梅納反應]]，除非表面刷了含糖烤肉醬）。\n\n## 關聯條目\n- 蛋白質與糖共同參與的褐變請見：[[梅納反應]]\n"}, {"id": "wiki-03", "group": "Wiki 條目 (6 篇)", "title": "蛋白質變性與肉汁流失", "path": "wiki/蛋白質變性與肉汁流失.md", "content": "---\nid: wiki-03\nsource: raw_sources/02_protein_denaturation.md\ntags: [蛋白質, 嫩度, 肉汁, 溫度區間]\n---\n\n# 蛋白質變性與肉汁流失\n\n## 白話核心概念\n加熱肉類就像「加熱彈簧」，溫度越高，肌肉蛋白質越緊縮，把裡面的肉汁像擰毛巾一樣擠出來——這就是為什麼肉煮太久會變乾變柴。\n\n## 關鍵數據與條件（強制查核區）\n- **肌凝蛋白 (Myosin)**：約 **50°C–55°C** 開始變性（頭部 ~55°C、尾部 ~60–64°C），肉質轉為軟嫩不透明，水分保留度高。\n- **肌動蛋白 (Actin)**：約 **66°C–78°C** 以上劇烈變性收縮，導致肌纖維大幅縮水並擠出大量肉汁，口感變乾柴。\n- **膠原蛋白 (Collagen)**：在 **55°C–65°C+** 經長時間濕熱烹調會溶解為**明膠 (Gelatin)**，增加滑嫩口感。\n\n## 常見誤區（簡報排錯素材）\n- ❌ 誤以為雞胸肉天生一定乾柴（其實是傳統烹煮到 74°C+ 觸發了肌動蛋白劇烈收縮）。\n\n## 關聯條目\n- 如何用溫度控制牛排熟度請見：[[牛排中心溫度與靜置回溫]]\n- 如何避開 74°C 又能安全殺菌請見：[[低溫舒肥巴氏殺菌曲線]]\n"}, {"id": "wiki-04", "group": "Wiki 條目 (6 篇)", "title": "牛排中心溫度與靜置回溫", "path": "wiki/牛排中心溫度與靜置回溫.md", "content": "---\nid: wiki-04\nsource: raw_sources/03_steak_doneness.md\ntags: [牛排, 熟度, 溫度計, 靜置回溫]\n---\n\n# 牛排中心溫度與靜置回溫\n\n## 白話核心概念\n決定牛排熟度的不是「煎幾分鐘」，而是**中心溫度**；煎完後讓牛排「休息幾分鐘」，能讓緊繃的肌纖維放鬆，把肉汁鎖回肉裡。\n\n## 關鍵數據與條件（強制查核區）\n- **熟度標準（統一攝氏標示）**：\n  - 三分熟 (Rare)：**49–54°C** (120–130°F，常見目標 52°C)\n  - 五分熟 (Medium Rare)：**54–57°C** (130–135°F，最佳口感)\n  - 七分熟 (Medium)：**57–63°C** (135–145°F)\n  - 全熟 (Well Done)：**68°C 以上** (155°F+)\n- **餘溫效應 (Carryover Cooking)**：離火後中心溫度還會再上升 **3–5°C**，應提前離火。\n- **靜置回溫 (Resting) 實驗數據**：J. Kenji López-Alt 實測顯示，剛離火就切開會額外流失 **9%** 肉汁；靜置 **7.5–10 分鐘**（中心微降至 49°C / 120°F）後切開，僅額外流失 **2%** 肉汁（一般建議靜置 **5–10 分鐘**，約每吋厚 5 分鐘）。\n\n## 常見誤區（簡報排錯素材）\n- ❌ 剛煎完就馬上切開吃，導致切菜板上流滿血水（其實是肌紅蛋白與肉汁）。\n- ❌ 誤將華氏 135°F 當成攝氏，或忘記扣除餘溫上升的 3–5°C。\n\n## 關聯條目\n- 溫度對肌纖維收縮的影響請見：[[蛋白質變性與肉汁流失]]\n- 外層焦香怎麼煎請見：[[梅納反應]]\n"}, {"id": "wiki-05", "group": "Wiki 條目 (6 篇)", "title": "低溫舒肥巴氏殺菌曲線", "path": "wiki/低溫舒肥巴氏殺菌曲線.md", "content": "---\nid: wiki-05\nsource: raw_sources/04_sous_vide_safety.md\ntags: [食安, 舒肥, 巴氏殺菌, 溫度時間曲線]\n---\n\n# 低溫舒肥巴氏殺菌曲線\n\n## 白話核心概念\n殺菌不是只有「瞬間高溫 74°C」一條路；只要把肉維持在較低的溫度「泡足夠長的時間」，一樣能把細菌消滅殆盡，同時留住極致多汁的粉嫩口感。\n\n## 關鍵數據與條件（強制查核區）\n- **核心原則**：巴氏殺菌取決於 **「溫度 × 時間」的累積效應**（目標為沙門氏菌 7-log10 減菌）。\n- **雞胸肉安全基準（達到核心溫度後的維持時間）**：\n  - **60°C** (140°F)：必須持續維持 **27.5 分鐘**（含升溫預熱通常煮 1–1.5 小時）。\n  - **63°C** (145°F)：必須持續維持 **9.2 分鐘**。\n  - **66°C** (150°F)：僅需維持 **2.8 分鐘**（65°C 約 5.5 分鐘）。\n  - **74°C** (165°F)：傳統瞬間殺菌溫度，但肉質會變柴。\n- **最低安全門檻**：不得低於 **54.4°C** (130°F)，否則細菌可能持續繁殖。\n\n## 常見誤區（簡報排錯素材）\n- ❌ **致命遺漏**：只記住「雞肉 60°C 可殺菌」，卻漏掉「中心必須維持 27.5 分鐘」的時間前提。\n- ❌ **物種混用**：誤把牛排五分熟溫度（54–57°C）直接套用於雞肉短時間烹煮。\n\n## 關聯條目\n- 為何 60°C 比 74°C 多汁請見：[[蛋白質變性與肉汁流失]]\n- 舒肥完如何補上焦香外殼請見：[[表面水分與水煮效應]]\n"}, {"id": "wiki-06", "group": "Wiki 條目 (6 篇)", "title": "表面水分與水煮效應", "path": "wiki/表面水分與水煮效應.md", "content": "---\nid: wiki-06\nsource: raw_sources/05_searing_troubleshooting.md\ntags: [排錯, 煎烤, 舒肥後處理, 水煮效應]\n---\n\n# 表面水分與水煮效應\n\n## 白話核心概念\n水在 100°C 就會沸騰吸熱；如果牛排表面濕答答就下鍋，熱量全被拿去燒開水，表面溫度永遠到不了 140°C，牛排就會變成「水煮灰肉」。\n\n## 關鍵數據與條件（強制查核區）\n- **100°C 溫度鎖死效應**：液態水沸點為 **100°C** (212°F)。表面水分完全蒸發前，肉表溫度無法突破 100°C，距離 [[梅納反應]] 所需的 **140°C–165°C** 還差 40°C 以上。\n- **標準解法三步驟**：\n  1. 下鍋前用廚房紙巾**徹底擦乾**（舒肥後的肉品尤其重要）。\n  2. 使用高蓄熱鍋具（如鑄鐵鍋）充分預熱，避免下鍋後跌破 140°C。\n  3. 搭配高發煙點油脂，確保熱傳導均勻。\n\n## 常見誤區（簡報排錯素材）\n- ❌ 舒肥取出後直接帶水下鍋，結果煎了 3 分鐘還沒上色，內部反而被蒸到過熟。\n\n## 關聯條目\n- 上色所需的化學條件請見：[[梅納反應]]\n"}, {"id": "raw-01", "group": "原始資料 Raw Sources (5 篇)", "title": "01_maillard_reaction.md", "path": "raw_sources/01_maillard_reaction.md", "content": "# Raw Source 01: 梅納反應與焦糖化反應的化學差異\n\n- 來源整理自食品化學參考資料（[AllBlogs Food Chemistry Guide](https://allblogs.in/post/maillard-reaction-vs-caramelization-food-chemistry-guide)、[Formul.io](https://formul.io/science/maillard-reaction-caramelization-science)、[Modernist Cuisine](https://modernistcuisine.com/mc/the-maillard-reaction/)）。\n\n## 梅納反應 (Maillard Reaction)\n1912 年由法國化學家 Louis-Camille Maillard 提出。這是一種非酵素褐變反應，發生在**胺基酸（來自蛋白質）**與**還原糖（如葡萄糖、果糖）**之間。\n- 雖然極慢速的反應在室溫即可發生，但在一般烹飪的時間尺度下，梅納反應的實務起跑點約在 110°C 以上，而最劇烈、產生最多香氣的黃金區間為 **140°C–165°C (284°F–330°F)**。\n- 產物：產生數百種揮發性芳香分子，包括吡嗪（Pyrazines）、呋喃（Furans）與褐色類黑素（Melanoidins），帶來烘焙、堅果、肉香與鮮味（Umami）。\n- 酸鹼值影響：偏鹼性環境（pH > 7.0）會顯著加速梅納反應；酸性醃料則會抑制上色。\n\n## 焦糖化反應 (Caramelization)\n焦糖化是**純碳水化合物（糖類）**在沒有蛋白質參與下的熱裂解反應（Pyrolysis）。\n- 不同糖類的焦糖化起始溫度不同：果糖約 110°C (230°F)，葡萄糖約 150–160°C，而常見的蔗糖（Sucrose）則需達到 **160°C 以上 (320°F+)** 才會開始焦糖化。\n- 產物：產生雙乙醯（Diacetyl，奶油香）、麥芽醇（Maltol）與焦糖素，風味偏向甜香、太妃糖與微苦。\n- 注意：當表面溫度超過 **180°C–200°C (355°F–392°F)** 時，會進入過度熱解（焦化/炭化，Burning），產生苦味與潜在有害物質。\n"}, {"id": "raw-02", "group": "原始資料 Raw Sources (5 篇)", "title": "02_protein_denaturation.md", "path": "raw_sources/02_protein_denaturation.md", "content": "# Raw Source 02: 肌肉蛋白質變性與溫度對嫩度的影響\n\n- 來源整理自食品科學文獻（[PMC8909173](https://pmc.ncbi.nlm.nih.gov/articles/PMC8909173/)、[PMC12926726](https://pmc.ncbi.nlm.nih.gov/articles/PMC12926726/)、[ThermoWorks](https://blog.thermoworks.com/steak-temps-getting-it-right/)）。\n\n肉類的口感（嫩度與多汁程度）取決於肌肉中三種主要蛋白質在不同溫度下的熱變性（Thermal Denaturation）：\n\n1. **肌凝蛋白 (Myosin)**：\n   - 約在 **50°C–55°C** 開始變性並展開捲曲（DSC 測試顯示肌凝蛋白頭部約在 55°C 變性，尾部約 60–64°C）。\n   - 此階段肉質開始從生肉的半透明滑膩感轉為不透明的粉嫩口感，但仍保有大量水分，是牛排三分到五分熟的核心區間。\n\n2. **肌動蛋白 (Actin)**：\n   - 當加熱溫度攀升至 **66°C–78°C** 以上時，肌動蛋白開始劇烈變性收縮。\n   - 這會導致肌原纖維（Myofibrils）橫向與縱向收縮，像擰毛巾一樣把大量水分擠出肉外，這就是為什麼全熟牛排或傳統煮到 75°C+ 的雞胸肉吃起來又乾又柴的主因。\n\n3. **膠原蛋白 (Collagen)**：\n   - 屬於結締組織，在 **55°C–65°C** 以上若經過長時間低溫濕熱烹調（如舒肥或慢燉），會逐漸溶解轉化為滑順的**明膠（Gelatin）**，讓富含筋膜的部位變得軟嫩多汁。\n"}, {"id": "raw-03", "group": "原始資料 Raw Sources (5 篇)", "title": "03_steak_doneness.md", "path": "raw_sources/03_steak_doneness.md", "content": "# Raw Source 03: 牛排熟度中心溫度與靜置回溫（Resting）原理\n\n- 來源整理自 [ThermoWorks Steak Temperature Guide](https://blog.thermoworks.com/steak-temps-getting-it-right/)、[FoodFireFriends / Serious Eats Kenji 實驗整理](https://www.foodfirefriends.com/how-long-to-rest-steak/)、[Cost Cut Meats](https://costcutmeats.com.au/blogs/cooking-guides/steak-doneness-temperatures)。\n\n## 牛排各熟度中心溫度對照（注意 °F 與 °C 換算）\n- 一分熟 (Bleu)：110°F (43°C)\n- 三分熟 (Rare)：120–130°F (**49–54°C**，常見取 52°C)\n- 五分熟 (Medium Rare)：130–135°F (**54–57°C**，最推薦黃金熟度)\n- 七分熟 (Medium)：135–145°F (**57–63°C**)\n- 八至九分熟 (Medium Well)：145–155°F (63–68°C)\n- 全熟 (Well Done)：155°F+ (68°C+)\n\n## 餘溫效應 (Carryover Cooking) 與靜置回溫 (Resting)\n1. **餘溫效應**：牛排離火後，外部高溫會繼續向中心傳導，使中心溫度再上升 **3–5°C**，因此建議在達到目標溫度前 3°C 左右先離火。\n2. **Kenji López-Alt (Serious Eats) 肉汁保留實驗**：\n   - 將 6 塊相同牛排煎至中心溫度 125°F (52°C)（烹飪過程自然流失約 13% 重量）。\n   - **立即切開**：額外流失高達 **9%** 的肉汁重量（總流失 22%）。\n   - **靜置 7.5–10 分鐘**（待中心微降溫至約 120°F / 49°C）：切開後僅額外流失 **2%** 的肉汁（總流失 15%）。\n   - 經驗法則：每 1 英吋（約 2.5 公分）厚度靜置約 **5 分鐘**，一般牛排靜置 **5–10 分鐘** 即可讓溫度梯度平衡、肌纖維放鬆並重新鎖住肉汁。\n"}, {"id": "raw-04", "group": "原始資料 Raw Sources (5 篇)", "title": "04_sous_vide_safety.md", "path": "raw_sources/04_sous_vide_safety.md", "content": "# Raw Source 04: 低溫舒肥（Sous-Vide）與巴氏殺菌時間溫度表\n\n- 來源整理自 [Douglas Baldwin - A Practical Guide to Sous Vide Cooking](https://douglasbaldwin.com/sous-vide.html) 與 [Anova Sous Vide Pasteurization Guide](https://anovaculinary.com/pages/sous-vide-pasteurization-guide)。\n\n## 為什麼 60°C 的粉紅雞胸肉也能安全食用？\n傳統食品安全規範要求雞肉瞬間達到 **74°C (165°F)** 以立即殺滅沙門氏菌（Salmonella）與李斯特菌（Listeria）。但殺菌並非「非黑即白」的單一溫度開關，而是取決於 **「溫度 × 時間」的累積效果（巴氏殺菌 Pasteurization）**。\n\n## 雞胸肉巴氏殺菌「中心溫度－維持時間」基準表\n注意：以下時間指的是「肉品中心已達到水浴溫度後」必須持續維持的最短時間（未計入厚度的升溫預熱時間）：\n- **140°F (60°C)**：需持續維持 **27.5 分鐘**（實務上連同升溫常設定 1 至 1.5 小時）。\n- **145°F (63°C)**：需持續維持 **9.2 分鐘**。\n- **150°F (66°C)**：僅需維持 **2.8 分鐘**（約 65°C 時約 5.5 分鐘）。\n- **165°F (74°C)**：瞬間殺菌（< 10 秒），但此時肌動蛋白已劇烈收縮，雞胸肉會嚴重乾柴。\n\n## 食安警語\n- 絕對不能只設定水浴為 60°C 就以為「放進去變色即可」。必須確保核心達到 60°C 且維持至少 27.5 分鐘以上，才能達到與傳統 74°C 相同的 7-log10 沙門氏菌減菌效果。\n- 54.4°C (130°F) 是巴氏殺菌的最低安全門檻溫度（低於此溫度細菌仍可能繁殖）。\n"}, {"id": "raw-05", "group": "原始資料 Raw Sources (5 篇)", "title": "05_searing_troubleshooting.md", "path": "raw_sources/05_searing_troubleshooting.md", "content": "# Raw Source 05: 居家煎牛排常見失敗排錯：為什麼煎不出焦香？\n\n- 來源整理自 [AllBlogs Food Chemistry Guide](https://allblogs.in/post/maillard-reaction-vs-caramelization-food-chemistry-guide) 與 [Modernist Cuisine](https://modernistcuisine.com/mc/the-maillard-reaction/)。\n\n許多新手照著食譜大火煎牛排，卻發現牛排表面灰白、沒有酥脆焦香外殼，甚至整盤出水，原因主要有二：\n\n1. **表面水分過多導致「水煮效應 (Steaming)」**：\n   - 水在標準大氣壓下的沸點是 **100°C (212°F)**。\n   - 如果牛排表面（尤其是舒肥剛拿出袋子的牛排）沒有用廚房紙巾徹底擦乾，鍋子的熱能會先被用來蒸發水分。在水分完全汽化前，牛排表面溫度會被「鎖死」在 **100°C**，根本無法跨越 **140°C** 的梅納反應門檻，導致肉片在自己的蒸氣裡被「水煮」變灰、變老。\n\n2. **鍋具蓄熱不足或下鍋後溫度驟降**：\n   - 使用薄底不沾鍋或一次放入太多肉，會讓鍋面溫度在接觸冷肉後瞬間跌破 140°C。\n   - **解法**：(a) 下鍋前用廚房紙巾將表面徹底壓乾（或提前冷藏風乾）；(b) 選用厚底鑄鐵鍋或重型不鏽鋼鍋充分預熱；(c) 選用高發煙點油脂（如酪梨油、葡萄籽油）並單面靜置足夠時間再翻面。\n"}, {"id": "rules", "group": "系統規範與執行紀錄", "title": "WIKI_RULES.md", "path": "WIKI_RULES.md", "content": "# WIKI_RULES.md — LLM Wiki 系統與查核規範\n\n本文件定義 AI 在執行 `Ingest（吸收原始資料）` 與 `Generate（生成教學簡報）` 時必須嚴格遵守的結構與查核規則。\n\n## 1. 單一條目強制模板\n\n每篇位於 `wiki/` 的條目必須包含以下區塊：\n\n```markdown\n---\nid: wiki-0X\nsource: raw_sources/0X_xxx.md\ntags: [標籤1, 標籤2]\n---\n\n# 條目標題\n\n## 白話核心概念\n（用一句沒下過廚的新手也聽得懂的話解釋）\n\n## 關鍵數據與條件（強制查核區）\n- 必須列出精確溫度、時間與實驗數據。\n- 必須標明「前置條件」（例如：達到中心溫度後的維持時間）。\n\n## 常見誤區（簡報排錯素材）\n- ❌ 列出新手或 AI 最常犯的錯誤。\n\n## 關聯條目\n- 使用 `[[條目標題]]` 建立雙向連結。\n```\n\n## 2. 數值與食安強制查核規則（Fact-Check Gate）\n\n1. **單位統一規則**：全 Wiki 與簡報一律以 **攝氏（°C）** 為主標示，可於括號內附註華氏（°F）；嚴禁將華氏數字誤寫為攝氏（例如不得將 `140°F` 寫成 `140°C`）。\n2. **物種隔離規則**：嚴格區分「牛排（整塊牛肉）」與「禽肉（雞胸肉）」的安全溫度，不可將牛排五分熟溫度（54–57°C）直接套用於雞肉而無時間補償。\n3. **時間前提規則**：引用低溫舒肥殺菌溫度時，**必須同時寫出「中心溫度維持時間」**（例如雞胸肉 `60°C` 必須維持 `27.5 分鐘`），不可只寫溫度而省略時間。\n4. **可追溯性規則**：簡報每一頁的知識點與數據，必須明確標註對應的 `wiki/` 條目 ID 與條目名稱。\n"}, {"id": "logs", "group": "系統規範與執行紀錄", "title": "execution_and_check_log.md", "path": "logs/execution_and_check_log.md", "content": "# Loop / Graph 設計、實際執行檢查紀錄與反思\n\n本文件對應作業「步驟三：Loop / Graph 設計說明」與「步驟四：反思」，完整記錄本次執行過程中的節點設計、攔截到的錯誤與流程修正。\n\n---\n\n## 一、Workflow Loop / Graph 設計說明\n\n### 1. 流程圖（Graph）\n\n```text\n[1. 取得原始資料 (raw_sources/ 5篇)]\n          │\n          ▼\n[2. Ingest 解析與寫入 Wiki (wiki/ 6篇)] ◄───────┐ (若格式/雙向連結缺失則重寫)\n          │                                       │\n          ▼                                       │\n[3. 數值與食安強制查核 (Fact-Check Gate)] ────────┘\n    ├─ 檢查項目 A：°F / °C 單位是否統一且換算正確？\n    ├─ 檢查項目 B：舒肥溫度是否附帶「維持時間前提」？\n    └─ 檢查項目 C：牛排 vs. 禽肉安全標準是否隔離？\n          │ (查核通過)\n          ▼\n[4. 整理簡報大綱 & 1對1 Wiki 溯源映射]\n          │\n          ▼\n[5. 產生教學型 HTML 簡報 (presentation/index.html)]\n          │\n          ▼\n[6. 自動化程式檢查 + 視覺渲染驗收] ◄── (若發現 JS 錯誤/破版/數據漂移則退回步驟 5 修正)\n```\n\n### 2. 哪些步驟會重複執行（Loop）？\n- **Ingest → Fact-Check Loop（步驟 2 ↔ 3）**：每吸收一篇原始資料並產出 Wiki 條目後，會立即進入「強制查核區」驗證。若發現單位未換算、缺少時間前提或雙向連結斷裂，會退回步驟 2 補齊後再放行。\n- **HTML 生成 → 檢查驗收 Loop（步驟 5 ↔ 6）**：產出 `index.html` 後執行 `check_web_app.py` 檢查 DOM ID、按鈕事件與無效連結，若有 Error/Warning 即退回修正並重驗。\n\n### 3. 為什麼這樣設計？\n將 **Fact-Check Gate（數值與食安查核）** 設為「進入簡報製作前」的關卡，並要求每篇 Wiki 設立「強制查核區」與 YAML `source` 欄位，可以確保簡報製作階段只讀取**已經過單位統一與前提補全**的乾淨知識，避免錯誤在生成 HTML 卡片時被放大或美化包裝。\n\n---\n\n## 二、實際執行與檢查紀錄（Execution & Check Log）\n\n| 執行階段 | 檢查對象 | 發現的問題（實際攔截紀錄） | 處理方式與結果 |\n| :--- | :--- | :--- | :--- |\n| **Run #1 (Ingest)** | `03_steak_doneness.md` → `牛排中心溫度與靜置回溫.md` | 原始資料同時出現 `130–135°F` 與 `54–57°C`，草稿曾誤將 `120°F`（靜置目標）與 `49°C` 混淆標示為「五分熟」。 | **攔截修正**：依 `WIKI_RULES.md` 單位統一規則，強制以 `°C` 為主標示並逐一驗算 `°F → °C` 換算，明確區分「五分熟 54–57°C」與「靜置降溫目標 49°C (120°F)」。 |\n| **Run #2 (簡報草稿)** | `低溫舒肥巴氏殺菌曲線` → Slide 6 摘要卡片 | 初版摘要為了版面精簡，在溫度卡片上只寫了「`60°C` 即可殺菌」，**遺漏了「必須持續維持 27.5 分鐘」的核心時間前提**。 | **攔截修正**：觸發食安查核規則 #3，退回重寫 Slide 6，在每一個溫度按鈕與圖表標籤上強制綁定「溫度 + 維持時間」，並加上紅色食安警語框。 |\n| **Run #3 (HTML 驗收)** | `presentation/index.html` | 執行靜態與互動檢查腳本 `check_web_app.py`，確認所有投影片切換按鈕、熟度計算器、舒肥時間查詢器與鍵盤事件皆有正確綁定。 | **驗收通過**：0 Errors, 0 Warnings，所有數據與 `wiki/` 條目 1 對 1 吻合。 |\n\n---\n\n## 三、反思（Reflection）\n\n1. **哪一個節點最常出錯？**\n   - **「整理重點／摘要生成」節點**最常出錯。因為 LLM 在將長篇 Wiki 濃縮成簡報卡片或表格時，會本能地追求「精簡字數」，極易把看似修飾語的**關鍵前提（如：維持 27.5 分鐘、達到核心溫度後起算）**刪掉，或是在不同熟度/物種間切換時發生 `°F / °C` 數值張冠李戴。\n\n2. **發現問題後，把檢查往前移到了哪一個步驟？**\n   - 原本我們是在「產生簡報 HTML 後」才進行人工閱讀檢查（Post-check），發現這樣一旦出錯就要重改 HTML 結構與互動腳本，成本很高。\n   - 發現問題後，我們把檢查往前移到 **「Ingest 寫入 Wiki 時」與「查詢 Wiki → 整理簡報大綱之間」**，並在 `WIKI_RULES.md` 直接規定每篇 Wiki 必須內建 `## 關鍵數據與條件（強制查核區）`。\n\n3. **有沒有因此修改 Workflow / Graph？為什麼？**\n   - **有修改**。我們將原本線性的 `取得資料 → 寫入 Wiki → 產生簡報 → 最後檢查`，修改為在步驟 3 插入一個獨立的 **`Fact-Check Gate`（強制查核節點）**，並加上回退迴圈（Loop）。這樣做能把「知識正確性」與「視覺排版」解耦，讓問題在純文字階段就被低成本攔截，確保最終呈現給初學者的教學簡報既易懂又零食安風險。\n"}];
+    const sidebar = document.getElementById('sidebarNav');
+    const docContent = document.getElementById('docContent');
+    const docPathBadge = document.getElementById('docPathBadge');
+    let activeId = 'wiki-01';
+
+    function renderSidebar() {
+      const groups = [...new Set(DOCS.map(d => d.group))];
+      sidebar.innerHTML = groups.map(g => {
+        const items = DOCS.filter(d => d.group === g);
+        return `
+          <div>
+            <div class="text-xs font-bold uppercase tracking-wider text-stone-400 mb-2">${g}</div>
+            <div class="space-y-1">
+              ${items.map(item => `
+                <button type="button" data-doc-id="${item.id}" class="w-full text-left text-xs sm:text-sm px-3 py-2 rounded-lg transition cursor-pointer ${item.id === activeId ? 'bg-orange-600 text-white font-bold' : 'text-stone-300 hover:bg-stone-800'}">
+                  ${item.title}
+                </button>
+              `).join('')}
+            </div>
+          </div>
+        `;
+      }).join('');
+      sidebar.querySelectorAll('[data-doc-id]').forEach(btn => {
+        btn.addEventListener('click', () => openDoc(btn.dataset.docId));
+      });
+    }
+
+    function openDoc(id) {
+      const doc = DOCS.find(d => d.id === id);
+      if (!doc) return;
+      activeId = id;
+      docPathBadge.textContent = doc.path;
+
+      // Strip YAML frontmatter for clean display, or show as metadata tag
+      let raw = doc.content.replace(/^---\n([\s\S]*?)\n---\n/, (_, fm) => {
+        const lines = fm.trim().split('\n').map(l => `<span class="inline-block bg-stone-800 text-stone-300 text-xs font-mono px-2 py-0.5 rounded mr-1.5 mb-1">${l}</span>`).join('');
+        return `<div class="mb-4">${lines}</div>\n\n`;
+      });
+
+      // Convert [[條目]] to clickable buttons
+      raw = raw.replace(/\[\[([^\]]+)\]\]/g, (_, name) => {
+        const target = DOCS.find(d => d.title === name);
+        if (target) {
+          return `<button type="button" class="wikilink" data-jump="${target.id}">[[${name}]]</button>`;
+        }
+        return `[[${name}]]`;
+      });
+
+      docContent.innerHTML = typeof marked !== 'undefined' ? marked.parse(raw) : `<pre>${raw}</pre>`;
+      docContent.querySelectorAll('[data-jump]').forEach(el => {
+        el.addEventListener('click', () => openDoc(el.dataset.jump));
+      });
+      renderSidebar();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    openDoc('wiki-01');
+  </script>
+</body>
+</html>
